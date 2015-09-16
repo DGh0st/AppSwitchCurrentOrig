@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>			<string>PSSwitchCell</string>
+			<key>default</key>		<true/>
+			<key>defaults</key>		<string>com.dgh0st.appswitchcurrentOrig</string>
+			<key>key</key>			<string>isEnabled</string>
+			<key>label</key>		<string>Enable</string>
+			<key>PostNotification</key>		<string>com.dgh0st.appswitchcurrentOrig/settingschanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>			<string>PSGroupCell</string>
+			<key>footerText</key>	<string>This will open the App Switcher to last app if the App Switcher is opened from the springboard/homescreen.</string>
+			<key>isStaticText</key>	<true/>
+		</dict>
+		<dict>
+			<key>cell</key>			<string>PSSwitchCell</string>
+			<key>default</key>		<false/>
+			<key>defaults</key>		<string>com.dgh0st.appswitchcurrentOrig</string>
+			<key>key</key>			<string>sbLastApp</string>
+			<key>label</key>		<string>SpringBoard Last App</string>
+			<key>PostNotification</key>		<string>com.dgh0st.appswitchcurrentOrig/settingschanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>			<string>PSGroupCell</string>
+			<key>footerText</key>	<string>Known Bugs: 
+Settings does not render for the first time you open the App Switcher. Opening the App Switcher twice will fix this.
+
+Opening the App Switcher from an application while having only one application open in the switcher opens to homescreen/springboard. A temporary fix is enabling Springboard Last App.</string>
+		</dict>
+		<dict>
+			<key>cell</key>			<string>PSLinkCell</string>
+			<key>action</key>		<string>email</string>
+			<key>label</key>		<string>Email Support</string>
+		</dict>
+		<dict>
+			<key>cell</key>			<string>PSLinkCell</string>
+			<key>action</key>		<string>donate</string>
+			<key>label</key>		<string>Donate</string>
+		</dict>
+		<dict>
+			<key>cell</key>			<string>PSGroupCell</string>
+			<key>footerAlignment</key>	<integer>1</integer>
+			<key>footerText</key>	<string>AppSwitchCurrentOrig Â© 2015 DGh0st</string>
+			<key>isStaticText</key>	<true/>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>AppSwitchCurrentOrig</string>
+</dict>
+</plist>

@@ -1,0 +1,9 @@
+Package: com.dgh0st.appswitchcurrentOrig
+Name: AppSwitchCurrentOrig
+Depends: mobilesubstrate, preferenceloader
+Version: 1.0
+Architecture: iphoneos-arm
+Description: App Switcher to current instead of last app.
+Maintainer: DGh0st <deeppwnage@yahoo.com>
+Author: DGh0st <deeppwnage@yahoo.com>
+Section: Tweaks

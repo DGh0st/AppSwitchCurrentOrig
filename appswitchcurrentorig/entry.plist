@@ -1,0 +1,10 @@
+{
+    entry = {
+	bundle = AppSwitchCurrentOrig;
+	cell = PSLinkCell;
+	detail = AppSwitchCurrentOrigListController;
+	icon = AppSwitchCurrentOrig.png;
+	isController = 1;
+	label = AppSwitchCurrentOrig;
+    };
+}

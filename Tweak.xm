@@ -6,7 +6,7 @@
 -(void)setOffsetToIndex:(NSInteger)arg1 animated:(BOOL)arg2;
 @end
 
-#define dSettingsPath [NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Preferences/com.dgh0st.appswitchcurrent.plist"]
+#define dSettingsPath [NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Preferences/com.dgh0st.appswitchcurrentOrig.plist"]
 #define dIsEnabled [[[NSDictionary dictionaryWithContentsOfFile:dSettingsPath] objectForKey:@"isEnabled"] boolValue]
 #define dSBLastApp [[[NSDictionary dictionaryWithContentsOfFile:dSettingsPath] objectForKey:@"sbLastApp"] boolValue]
 

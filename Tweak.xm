@@ -1,16 +1,19 @@
 @interface SBAppSwitcherPageViewController
--(void)setOffsetToIndex:(unsigned long long)arg1 animated:(BOOL)arg2;
+-(void)setOffsetToIndex:(NSInteger)arg1 animated:(BOOL)arg2;
 @end
 
 @interface SBAppSwitcherIconController
--(void)setOffsetToIndex:(unsigned long long)arg1 animated:(BOOL)arg2;
+-(void)setOffsetToIndex:(NSInteger)arg1 animated:(BOOL)arg2;
 @end
 
-static BOOL dIsEnabled = YES;
-static BOOL dSBLastApp = NO;
+#define dSettingsPath [NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Preferences/com.dgh0st.appswitchcurrent.plist"]
+#define dIsEnabled [[[NSDictionary dictionaryWithContentsOfFile:dSettingsPath] objectForKey:@"isEnabled"] boolValue]
+#define dSBLastApp [[[NSDictionary dictionaryWithContentsOfFile:dSettingsPath] objectForKey:@"sbLastApp"] boolValue]
+
+NSMutableDictionary *prefs = nil;
 
 %hook SBAppSwitcherPageViewController
--(void)setOffsetToIndex:(unsigned long long)arg1 animated:(BOOL)arg2{
+-(void)setOffsetToIndex:(NSInteger)arg1 animated:(BOOL)arg2{
 	if(dIsEnabled){
 		BOOL changeIndex = YES;
 		if(arg1 == 0){
@@ -28,7 +31,7 @@ static BOOL dSBLastApp = NO;
 %end
 
 %hook SBAppSwitcherIconController
--(void)setOffsetToIndex:(unsigned long long)arg1 animated:(BOOL)arg2{
+-(void)setOffsetToIndex:(NSInteger)arg1 animated:(BOOL)arg2{
 	if(dIsEnabled){
 		BOOL changeIndex = YES;
 		if(arg1 == 0){
@@ -46,12 +49,7 @@ static BOOL dSBLastApp = NO;
 %end
 
 void loadPreferences() {
-	NSMutableDictionary* prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:@"var/mobile/Library/Preferences/com.dgh0st.appswitchcurrent.plist"];
-	if(prefs){
-		dIsEnabled = ([prefs objectForKey:@"isEnabled"] ? [[prefs objectForKey:@"isEnabled"] boolValue] : dIsEnabled);
-		dSBLastApp = ([prefs objectForKey:@"sbLastApp"] ? [[prefs objectForKey:@"sbLastApp"] boolValue] : dSBLastApp);
-	}
-	[prefs release];
+	prefs = [NSMutableDictionary dictionaryWithContentsOfFile:dSettingsPath];
 }
 
 %ctor {
@@ -61,7 +59,5 @@ void loadPreferences() {
 				    CFSTR("com.dgh0st.appswitchcurrentOrig/settingschanged"),
 				    NULL,
 				    CFNotificationSuspensionBehaviorDeliverImmediately);
-    
     loadPreferences();
-
 }

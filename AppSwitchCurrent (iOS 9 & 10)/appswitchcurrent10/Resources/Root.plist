@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>com.dgh0st.appswitchcurrent10</string>
+			<key>key</key>
+			<string>isEnabled</string>
+			<key>label</key>
+			<string>Enable</string>
+			<key>PostNotification</key>
+			<string>com.dgh0st.appswitchcurrent10/settingschanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Open the deck switcher to last application if switcher invoked from Homescreen</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.dgh0st.appswitchcurrent10</string>
+			<key>key</key>
+			<string>isSBLastAppEnabled</string>
+			<key>label</key>
+			<string>Homescreen last application</string>
+			<key>PostNotification</key>
+			<string>com.dgh0st.appswitchcurrent10/settingschanged</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Credits</string>
+			<key>footerText</key>
+			<string>Enjoy the tweak :)</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>action</key>
+			<string>email</string>
+			<key>label</key>
+			<string>Email Support</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>action</key>
+			<string>donate</string>
+			<key>label</key>
+			<string>Donate</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkCell</string>
+			<key>action</key>
+			<string>follow</string>
+			<key>label</key>
+			<string>Follow on twitter</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerAlignment</key>
+			<integer>1</integer>
+			<key>footerText</key>
+			<string>AppSwitchCurrent (9 &amp; 10) © 2017 DGh0st</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>AppSwitchCurrent10</string>
+</dict>
+</plist>

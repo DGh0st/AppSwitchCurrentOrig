@@ -1,0 +1,9 @@
+Package: com.dgh0st.appswitchcurrent10
+Name: AppSwitchCurrent (9 & 10)
+Depends: mobilesubstrate
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Center current application in deck switcher instead of last application for iOS 9 and 10.
+Maintainer: DGh0st <deeppwnage@yahoo.com>
+Author: DGh0st <deeppwnage@yahoo.com>
+Section: Tweaks

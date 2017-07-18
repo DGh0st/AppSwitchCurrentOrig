@@ -2,6 +2,10 @@
 @property (nonatomic,copy) NSArray * displayItems;
 @end
 
+@interface CS3DSwitcherViewController : UIViewController
+-(SBDeckSwitcherViewController *)deckSwitcher;
+@end
+
 BOOL isEnabled = YES;
 BOOL isSBLastAppEnabled = NO;
 
@@ -15,9 +19,24 @@ BOOL isSBLastAppEnabled = NO;
 }
 %end
 
+%hook CS3DSwitcherViewController
+-(void)dismissToIndex:(NSInteger)arg1 animated:(BOOL)arg2 {
+	if (isEnabled && arg1 != 0 && !(arg1 == 1 && isSBLastAppEnabled)) {
+		arg1++; // weird work around for correct dismiss animtation
+	}
+	%orig(arg1, arg2);
+}
+
+-(void)scrollToIndex:(NSInteger)arg1 animated:(BOOL)arg2 {
+	if (isEnabled && arg1 != 0 && !(arg1 == 1 && isSBLastAppEnabled)) {
+		arg1--;
+	}
+	%orig(arg1, arg2);
+}
+%end
+
 void loadPreferences() {
 	CFPreferencesAppSynchronize(CFSTR("com.dgh0st.appswitchcurrent10"));
-
 
 	NSDictionary *prefs = nil;
 	if ([NSHomeDirectory() isEqualToString:@"/var/mobile"]) {

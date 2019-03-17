@@ -48,12 +48,14 @@ void loadPreferences() {
 			}
 			CFRelease(keyList);
 		} else {
-			prefs = [NSDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/com.dgh0st.appswitchcurrent10.plist"];
+			prefs = [[NSDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.dgh0st.appswitchcurrent10.plist"];
 		}
 	}
 
 	isEnabled = [prefs objectForKey:@"isEnabled"] ? [[prefs objectForKey:@"isEnabled"] boolValue] : YES;
 	isSBLastAppEnabled = [prefs objectForKey:@"isSBLastAppEnabled"] ? [[prefs objectForKey:@"isSBLastAppEnabled"] boolValue] : NO;
+
+	[prefs release];
 }
 
 %dtor {
